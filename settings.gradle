@@ -1,0 +1,6 @@
+rootProject.name = 'seapay'
+include 'seapay-catalog'
+include 'seapay-payment'
+include 'seapay-shopping'
+include 'seapay-user-management'
+include 'seapay-voucher'
