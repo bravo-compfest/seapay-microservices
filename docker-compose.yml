@@ -1,0 +1,73 @@
+version: '3'
+
+services:
+  db:
+    image: postgres
+    environment:
+      - POSTGRES_HOST=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=seapay_dev
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./pgdata:/var/lib/postgresql/data
+
+  catalog-service:
+    build: .
+    ports:
+      - "8080:8080"
+    working_dir: /opt/seapay
+    command: make run-catalog
+    volumes:
+      - .:/opt/seapay
+      - ~/.gradle:/root/.gradle
+    depends_on:
+      - db
+
+  payment-service:
+    build: .
+    ports:
+      - "8081:8080"
+    working_dir: /opt/seapay
+    command: make run-payment
+    volumes:
+      - .:/opt/seapay
+      - ~/.gradle:/root/.gradle
+    depends_on:
+      - db
+
+  shopping-service:
+    build: .
+    ports:
+      - "8082:8080"
+    working_dir: /opt/seapay
+    command: make run-shopping
+    volumes:
+      - .:/opt/seapay
+      - ~/.gradle:/root/.gradle
+    depends_on:
+      - db
+
+  user-management-service:
+    build: .
+    ports:
+      - "8083:8080"
+    working_dir: /opt/seapay
+    command: make run-user-management
+    volumes:
+      - .:/opt/seapay
+      - ~/.gradle:/root/.gradle
+    depends_on:
+      - db
+
+  voucher-service:
+    build: .
+    ports:
+      - "8084:8080"
+    working_dir: /opt/seapay
+    command: make run-voucher
+    volumes:
+      - .:/opt/seapay
+      - ~/.gradle:/root/.gradle
+    depends_on:
+      - db
