@@ -14,6 +14,3 @@ CREATE TABLE transactions
     amount DECIMAL,
     created_at TIMESTAMP
 );
-
-INSERT INTO wallets (user_id, balance) VALUES (1, 0);
-INSERT INTO transactions (sender_id, receiver_id, amount) VALUES ('1', '1', 20000);
