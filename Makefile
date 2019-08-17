@@ -3,7 +3,7 @@ SEAPAY_VERSION=0.0.1
 DB_NAME="seapay_dev"
 DB_PORT=5432
 
-all: clean db-setup build
+all: clean db-create build
 
 run: run-catalog run-payment run-shopping run-user-management run-voucher
 
@@ -28,13 +28,8 @@ clean:
 build:
 	./gradlew build --info
 
-db-setup: db-create db-migrate
-
 db-drop:
 	dropdb -p $(DB_PORT) --if-exists -Upostgres $(DB_NAME)
-
-db-migrate:
-	./gradlew migrateDb
 
 db-create:
 	createdb -p $(DB_PORT) -Opostgres -Eutf8 $(DB_NAME)
