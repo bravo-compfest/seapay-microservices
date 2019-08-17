@@ -38,7 +38,7 @@ public class MerchantController {
 //    public ResponseEntity<Merchant> addItem(@PathVariable Integer merchantId, @RequestBody Item item){
 //        return merchantRepository.findById(merchantId).map(merchant -> {
 //            RestTemplate restTemplate = new RestTemplate();
-//            Item itemMade = restTemplate.postForObject("http://localhost:8089/restapi/items", item, Item.class);
+//            Item itemMade = restTemplate.postForObject("http://localhost:8080/items", item, Item.class);
 //            merchant.getItemIds().add(itemMade.getId());
 //            merchantRepository.save(merchant);
 //            return ResponseEntity.ok(merchant);

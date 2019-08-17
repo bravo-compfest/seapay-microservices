@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-@Table
+@Table(name = "merchants")
 @Entity
 public class Merchant implements Serializable {
     public Integer getId() {
@@ -56,19 +56,19 @@ public class Merchant implements Serializable {
         this.description = description;
     }
 
-    @Column
+    @Column(name = "name")
     private String name;
 
-    @Column
+    @Column(name = "username")
     private String username;
 
-    @Column
+    @Column(name = "password")
     private String password;
 
-    @Column
+    @Column(name = "store_name")
     private String storeName;
 
-    @Column
+    @Column(name = "description")
     private String description;
 
 //    public ArrayList<Integer> getItemIds() {
@@ -78,8 +78,8 @@ public class Merchant implements Serializable {
 //    public void setItemIds(ArrayList<Integer> itemIds) {
 //        this.itemIds = itemIds;
 //    }
-
-//    @Column
+//
+//    @Column(name = "item_ids")
 //    private ArrayList<Integer> itemIds;
 
 
