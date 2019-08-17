@@ -8,7 +8,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
-
+@CrossOrigin
 @RestController
 public class WalletController {
     @Autowired
