@@ -3,7 +3,7 @@ SEAPAY_VERSION=0.0.1
 DB_NAME="seapay_dev"
 DB_PORT=5432
 
-all: clean db-create build
+all: clean build
 
 run: run-catalog run-payment run-shopping run-user-management run-voucher
 

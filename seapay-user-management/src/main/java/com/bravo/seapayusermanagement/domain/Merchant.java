@@ -2,10 +2,15 @@ package com.bravo.seapayusermanagement.domain;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
 
 @Table
 @Entity
 public class Merchant implements Serializable {
+    public Integer getId() {
+        return id;
+    }
+
     @Id
     @GeneratedValue
     @Column(updatable = false)
@@ -66,10 +71,21 @@ public class Merchant implements Serializable {
     @Column
     private String description;
 
+//    public ArrayList<Integer> getItemIds() {
+//        return itemIds;
+//    }
+//
+//    public void setItemIds(ArrayList<Integer> itemIds) {
+//        this.itemIds = itemIds;
+//    }
 
-    public Merchant() {
+//    @Column
+//    private ArrayList<Integer> itemIds;
 
-    }
+
+//    public Merchant() {
+//        this.itemIds = new ArrayList<Integer>();
+//    }
 
     public Merchant(String name, String username, String password, String storeName, String description) {
         this.name = name;
@@ -77,5 +93,6 @@ public class Merchant implements Serializable {
         this.password = password;
         this.storeName = storeName;
         this.description = description;
+//        this.itemIds = new ArrayList<Integer>();
     }
 }
